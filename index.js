@@ -7,6 +7,7 @@ const temperature = document.querySelector(".temperature")
 const conditions = document.querySelector(".conditions")
 const humidity = document.querySelector(".humidity")
 const unit = document.querySelector(".unit-label")
+const unitdiv = document.querySelector(".unit")
 const response = document.querySelector(".response")
 const img = document.querySelector('.weather-img');
 
@@ -41,7 +42,7 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
 })
 
-unit.addEventListener("click", toggleUnit)
+unitdiv.addEventListener("click", toggleUnit)
 
 function loadConditions(value) {
     loading.style.display = "none";
