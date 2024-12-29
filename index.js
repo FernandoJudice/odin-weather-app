@@ -19,7 +19,8 @@ form.addEventListener("submit", (event) => {
     console.log(event.target);
     const location = Object.fromEntries(new FormData(event.target)).location;
     console.log(location)
-    loading.hidden = false
+    loading.hidden = false;
+    response.hidden = true;
     
     let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=${unitGroup}&key=${publicKey}&contentType=json`
     fetch(url)
@@ -40,6 +41,7 @@ unit.addEventListener("click", toggleUnit)
 
 function loadConditions(value) {
     loading.hidden = true;
+    response.hidden = false;
     temperature.textContent = value.temp + " " + unitName;
     conditions.textContent = value.conditions;
     humidity.textContent = value.humidity + " %";
