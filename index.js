@@ -8,6 +8,7 @@ const conditions = document.querySelector(".conditions")
 const humidity = document.querySelector(".humidity")
 const unit = document.querySelector(".unit-label")
 const response = document.querySelector(".response")
+const img = document.querySelector('.weather-img');
 
 loading.style.display = "none";
 response.style.display = "none";
@@ -31,6 +32,8 @@ form.addEventListener("submit", (event) => {
         .then((response) => {
                 console.log(response.currentConditions);
                 loadConditions(response.currentConditions);
+                gifRequest(response.currentConditions.conditions);
+
         })
         .catch((reject) => {
             alert("Ooops, something went wrong! Is the location correct?")
@@ -59,4 +62,15 @@ function toggleUnit() {
         unitName = 'C'
     }
     isCelsius = !isCelsius;
+}
+
+const apiurl = 'https://api.giphy.com/v1/gifs/translate?api_key=eLA7QS23VRBwO41xJ9hcRTmq8wqNant2&s=';
+
+function gifRequest(string) {fetch(apiurl+`${string}`, {mode: 'cors'})
+.then(function(response) {
+    return response.json();
+})
+.then(function(response) {
+    img.src = response.data.images.original.url;
+});
 }

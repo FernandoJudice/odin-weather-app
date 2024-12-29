@@ -82,7 +82,14 @@ input {
 }
 
 .gif {
-    background-color: yellow;
     grid-row: 1/-1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.weather-img {
+    object-fit: cover;
+    border-radius: 16px;
+    border: 2px var(--secondary-color) solid;
+}
