@@ -9,8 +9,8 @@ const humidity = document.querySelector(".humidity")
 const unit = document.querySelector(".unit-label")
 const response = document.querySelector(".response")
 
-loading.hidden = true;
-response.hidden = true;
+loading.style.display = "none";
+response.style.display = "none";
 
 let isCelsius = true;
 let unitGroup = 'metric';
@@ -20,8 +20,8 @@ form.addEventListener("submit", (event) => {
     console.log(event.target);
     const location = Object.fromEntries(new FormData(event.target)).location;
     console.log(location)
-    loading.hidden = false;
-    response.hidden = true;
+    loading.style.display = "initial";
+    response.style.display = "none";
     
     let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=${unitGroup}&key=${publicKey}&contentType=json`
     fetch(url)
@@ -41,8 +41,8 @@ form.addEventListener("submit", (event) => {
 unit.addEventListener("click", toggleUnit)
 
 function loadConditions(value) {
-    loading.hidden = true;
-    response.hidden = false;
+    loading.style.display = "none";
+    response.style.display = "grid";
     temperature.textContent = value.temp + " " + unitName;
     conditions.textContent = value.conditions;
     humidity.textContent = value.humidity + " %";

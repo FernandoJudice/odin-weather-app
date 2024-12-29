@@ -73,8 +73,16 @@ input {
     gap:inherit 8px;
 }
 
+.resp-field {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 16px;
+    padding-left: 24px;
+}
+
 .gif {
     background-color: yellow;
-
+    grid-row: 1/-1;
 }
 
