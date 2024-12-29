@@ -9,7 +9,8 @@ const humidity = document.querySelector(".humidity")
 const unit = document.querySelector(".unit-label")
 const response = document.querySelector(".response")
 
-loading.hidden = true
+loading.hidden = true;
+response.hidden = true;
 
 let isCelsius = true;
 let unitGroup = 'metric';

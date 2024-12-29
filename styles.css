@@ -57,8 +57,17 @@ input {
     gap: 8px;
 }
 
+
 .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.response {
     display: grid;
+    flex-grow: 1;
+    height: 100%;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap:inherit 8px;
@@ -66,5 +75,6 @@ input {
 
 .gif {
     background-color: yellow;
+
 }
 
