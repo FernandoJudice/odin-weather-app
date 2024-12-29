@@ -4,23 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="index.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Weather App</title>
 </head>
 <body>
     <div class="card">
-        <div class="header">
-            <form>
-                <label fot="location">Enter location</label>
-                <input type="text" id="location" name="location" maxlength="128" minlength="4" required pattern="^[a-zA-Z]+$">
-                <div class="unit">Celsius</div>
+        <form>
+            <div class="header">
+                <div class="field">
+                    <label fot="location">Enter location</label>
+                    <input type="text" id="location" name="location" maxlength="128" minlength="4" required pattern="^[a-zA-Z]+$">
+                </div>
+                <div class="unit">
+                    <div class="unit-bt"></div>
+                    <div class="unit-label">Celsius</div>
+                </div>
                 <button type="submit">Check Weather</button>
-            </form>
-        </div>
+            </div>
+        </form>
         <div class="content">
             <div class="loading">Loading...</div>
-            <div class="conditions"></div>
-            <div class="temperature"></div>
-            <div class="humidity"></div>
+            <div class="response">
+                <div class="gif"></div>
+                <div class="conditions"></div>
+                <div class="temperature"></div>
+                <div class="humidity"></div>
+            </div>
         </div>
     </div>
 </body>

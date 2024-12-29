@@ -6,7 +6,8 @@ const loading = document.querySelector(".loading")
 const temperature = document.querySelector(".temperature")
 const conditions = document.querySelector(".conditions")
 const humidity = document.querySelector(".humidity")
-const unit = document.querySelector(".unit")
+const unit = document.querySelector(".unit-label")
+const response = document.querySelector(".response")
 
 loading.hidden = true
 
