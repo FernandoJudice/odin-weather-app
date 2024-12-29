@@ -9,6 +9,7 @@
 }
 
 body {
+    background-image: url(./img/cloud-bg.jpg);
     font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
