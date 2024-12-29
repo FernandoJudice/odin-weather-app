@@ -6,11 +6,13 @@ const loading = document.querySelector(".loading")
 const temperature = document.querySelector(".temperature")
 const conditions = document.querySelector(".conditions")
 const humidity = document.querySelector(".humidity")
+const unit = document.querySelector(".unit")
 
 loading.hidden = true
 
-let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/recife?unitGroup=metric&key=${publicKey}&contentType=json`
-
+let isCelsius = true;
+let unitGroup = 'metric';
+let unitName = 'C';
 
 form.addEventListener("submit", (event) => {
     console.log(event.target);
@@ -18,7 +20,7 @@ form.addEventListener("submit", (event) => {
     console.log(location)
     loading.hidden = false
     
-    let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=${publicKey}&contentType=json`
+    let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=${unitGroup}&key=${publicKey}&contentType=json`
     fetch(url)
         .then((response) => {
                 return response.json();
@@ -28,16 +30,29 @@ form.addEventListener("submit", (event) => {
                 loadConditions(response.currentConditions);
         })
         .catch((reject) => {
-            console.log("Invalid location")
+            alert("Ooops, something went wrong! Is the location correct?")
         });
     event.preventDefault();
 })
 
+unit.addEventListener("click", toggleUnit)
 
 function loadConditions(value) {
     loading.hidden = true;
-    temperature.textContent = value.temp;
+    temperature.textContent = value.temp + " " + unitName;
     conditions.textContent = value.conditions;
-    humidity.textContent = value.humidity;
+    humidity.textContent = value.humidity + " %";
 }
 
+function toggleUnit() {
+    if (isCelsius) {
+        unitGroup = "us"
+        unit.textContent = "Fahrenheit";
+        unitName = 'F'
+    } else {
+        unitGroup = "metric";
+        unit.textContent = "Celsius";
+        unitName = 'C'
+    }
+    isCelsius = !isCelsius;
+}
